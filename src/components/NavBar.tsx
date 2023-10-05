@@ -8,7 +8,7 @@ import {
   CommandList,
 } from '@/components/ui/command';
 import React from 'react';
-import { ArrowUpRightSquare, Bell, ChevronDown, Egg, MessagesSquare, Plus } from 'lucide-react';
+import { ArrowUpRightSquare, Bell, ChevronDown, Shell, MessagesSquare, Plus, Search } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Input } from './ui/input';
 import { Button } from './ui/button';
@@ -21,7 +21,7 @@ export default function NavBar() {
       <nav className='flex items-center justify-between gap-1 px-4 py-1 h-12'>
         <div className='flex flex-row items-center gap-6 h-10 md:px-2'>
           <div className='flex flex-row items-center gap-1 shrink-0'>
-            <Egg />
+            <Shell size={32} />
             <p className='text-lg font-bold hidden md:block'>Bubble</p>
           </div>
           <Select>
@@ -36,16 +36,26 @@ export default function NavBar() {
           </Select>
         </div>
 
-        <div className='flex flex-row grow'>
+        <div className='flex-row grow hidden sm:flex'>
           <Input
             type='text'
             placeholder='Search'
-            className='bg-gray-200 focus-visible:ring-1 focus-visible:ring-stone-400 focus-visible:ring-offset-0'
+            className='bg-gray-200 focus-visible:ring-1 focus-visible:ring-stone-400 focus-visible:ring-offset-0 '
             onClick={() => {
               setOpen((prev) => !prev);
             }}
           />
         </div>
+
+        <Button
+          size={'icon'}
+          variant={'ghost'}
+          className='h-8 w-8 flex sm:hidden'
+          onClick={() => {
+            setOpen((prev) => !prev);
+          }}>
+          <Search />
+        </Button>
 
         <div className='flex flex-row items-center gap-2 xl:gap-12'>
           <div className='flex flex-row md:gap-2 gap-0'>
