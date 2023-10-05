@@ -10,9 +10,7 @@ export default function CommunityCard() {
           <Home strokeWidth={1.25} className='mr-2' />
           <CardTitle className='text-lg'>Home</CardTitle>
         </div>
-        <CardDescription>
-          Your personal Reddit frontpage. Come here to check in with your favorite communities.
-        </CardDescription>
+        <CardDescription>Your personal page. Come here to check in with your favorite communities.</CardDescription>
       </CardHeader>
       <CardContent className='flex flex-col gap-2'>
         <Button variant={'default'} size={'sm'} className='rounded-xl'>

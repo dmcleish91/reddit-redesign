@@ -60,25 +60,25 @@ export default function NavBar() {
         <div className='flex flex-row items-center gap-2 xl:gap-12'>
           <div className='flex flex-row md:gap-2 gap-0'>
             <Button size={'icon'} variant={'ghost'} className='h-8 w-8 hidden lg:flex'>
-              <ArrowUpRightSquare strokeWidth={1.25} />
+              <ArrowUpRightSquare />
             </Button>
             <Button size={'icon'} variant={'ghost'} className='h-8 w-8 hidden lg:flex'>
-              <MessagesSquare strokeWidth={1.25} />
+              <MessagesSquare />
             </Button>
             <Button size={'icon'} variant={'ghost'} className='h-8 w-8'>
-              <Bell strokeWidth={1.25} />
+              <Bell />
             </Button>
             <Button size={'icon'} variant={'ghost'} className='h-8 w-8'>
-              <Plus strokeWidth={1.25} />
+              <Plus />
             </Button>
           </div>
           <div className='flex flex-row gap-2 items-center md:px-2'>
             <div>
-              <ChevronDown strokeWidth={1.25} />
+              <ChevronDown />
             </div>
             <div>
               <p className='text-sm font-semibold'>TheStygianSun</p>
-              <p className='text-sm text-slate-600'>44 Karma</p>
+              <p className='text-sm text-slate-600'>44 Sparks</p>
             </div>
             <Avatar className='h-8 w-8'>
               <AvatarImage src='https://github.com/shadcn.png' alt='@shadcn' />
