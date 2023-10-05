@@ -6,16 +6,16 @@ import TrendingCard from './components/TrendingCard';
 
 function App() {
   return (
-    <div className='flex flex-col h-screen'>
+    <div className='flex h-screen flex-col'>
       <NavBar />
-      <div className='bg-gray-300 flex flex-row flex-grow' id='main-content'>
-        <div className='space-y-2 p-4 w-full 2xl:w-10/12'>
+      <div className='flex flex-grow flex-row bg-gray-300' id='main-content'>
+        <div className='w-full space-y-2 p-4 2xl:w-10/12'>
           <CreatePost />
           {posts.map(({ postAge, subredditName, title, username }) => (
             <Post title={title} subredditName={subredditName} username={username} postAge={postAge} />
           ))}
         </div>
-        <div className='p-4 hidden 2xl:w-2/12 space-y-4 2xl:block'>
+        <div className='hidden space-y-4 p-4 2xl:block 2xl:w-2/12'>
           <CommunityCard />
           <TrendingCard />
         </div>

@@ -18,14 +18,14 @@ export default function NavBar() {
 
   return (
     <div className='bg-white'>
-      <nav className='flex items-center justify-between gap-1 px-4 py-1 h-12'>
-        <div className='flex flex-row items-center gap-6 h-10 md:px-2'>
-          <div className='flex flex-row items-center gap-1 shrink-0'>
+      <nav className='flex h-12 items-center justify-between gap-1 px-4 py-1'>
+        <div className='flex h-10 flex-row items-center gap-6 md:px-2'>
+          <div className='flex shrink-0 flex-row items-center gap-1'>
             <Shell size={32} />
-            <p className='text-lg font-bold hidden md:block'>Bubble</p>
+            <p className='hidden text-lg font-bold md:block'>Bubble</p>
           </div>
           <Select>
-            <SelectTrigger className='w-[270px] hidden lg:flex focus:ring-1 focus:ring-stone-400 focus:ring-offset-0'>
+            <SelectTrigger className='hidden w-[270px] focus:ring-1 focus:ring-stone-400 focus:ring-offset-0 lg:flex'>
               <SelectValue placeholder='My Communities' />
             </SelectTrigger>
             <SelectContent>
@@ -36,7 +36,7 @@ export default function NavBar() {
           </Select>
         </div>
 
-        <div className='flex-row grow hidden sm:flex'>
+        <div className='hidden grow flex-row sm:flex'>
           <Input
             type='text'
             placeholder='Search'
@@ -50,7 +50,7 @@ export default function NavBar() {
         <Button
           size={'icon'}
           variant={'ghost'}
-          className='h-8 w-8 flex sm:hidden'
+          className='flex h-8 w-8 sm:hidden'
           onClick={() => {
             setOpen((prev) => !prev);
           }}>
@@ -58,11 +58,11 @@ export default function NavBar() {
         </Button>
 
         <div className='flex flex-row items-center gap-2 xl:gap-12'>
-          <div className='flex flex-row md:gap-2 gap-0'>
-            <Button size={'icon'} variant={'ghost'} className='h-8 w-8 hidden lg:flex'>
+          <div className='flex flex-row gap-0 md:gap-2'>
+            <Button size={'icon'} variant={'ghost'} className='hidden h-8 w-8 lg:flex'>
               <ArrowUpRightSquare />
             </Button>
-            <Button size={'icon'} variant={'ghost'} className='h-8 w-8 hidden lg:flex'>
+            <Button size={'icon'} variant={'ghost'} className='hidden h-8 w-8 lg:flex'>
               <MessagesSquare />
             </Button>
             <Button size={'icon'} variant={'ghost'} className='h-8 w-8'>
@@ -72,7 +72,7 @@ export default function NavBar() {
               <Plus />
             </Button>
           </div>
-          <div className='flex flex-row gap-2 items-center md:px-2'>
+          <div className='flex flex-row items-center gap-2 md:px-2'>
             <div>
               <ChevronDown />
             </div>

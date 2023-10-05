@@ -4,7 +4,7 @@ import { Button } from './ui/button';
 
 export default function CommunityCard() {
   return (
-    <Card className='h-64 max-w-96 border border-slate-400'>
+    <Card className='max-w-96 h-64 border border-slate-400'>
       <CardHeader>
         <div className='flex flex-row items-center'>
           <Home strokeWidth={1.25} className='mr-2' />
