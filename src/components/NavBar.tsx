@@ -7,8 +7,15 @@ import {
   CommandItem,
   CommandList,
 } from '@/components/ui/command';
-import React from 'react';
-import { ArrowUpRightSquare, Bell, ChevronDown, Shell, MessagesSquare, Plus, Search } from 'lucide-react';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
+import React, { ReactNode } from 'react';
+import { ArrowUpRightSquare, Bell, ChevronDown, Shell, MessagesSquare, Plus, Search, LogOut, Sun } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Input } from './ui/input';
 import { Button } from './ui/button';
@@ -74,7 +81,11 @@ function NavBar() {
           </div>
           <div className='flex flex-row items-center gap-2 md:px-2'>
             <div>
-              <ChevronDown strokeWidth={1.5} />
+              <DropDownAvatarMenu>
+                <Button size={'icon'} variant={'ghost'} className='h-8 w-8'>
+                  <ChevronDown strokeWidth={1.5} />
+                </Button>
+              </DropDownAvatarMenu>
             </div>
             <div>
               <p className='text-sm font-semibold'>TheStygianSun</p>
@@ -118,5 +129,29 @@ function CommandMenu({ open, setOpen }: { open: boolean; setOpen: (open: any) =>
         </CommandGroup>
       </CommandList>
     </CommandDialog>
+  );
+}
+
+interface DropDownAvatarMenuProps {
+  children: ReactNode;
+}
+
+function DropDownAvatarMenu({ children }: DropDownAvatarMenuProps) {
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger>{children}</DropdownMenuTrigger>
+      <DropdownMenuContent>
+        <DropdownMenuItem>Profile</DropdownMenuItem>
+        <DropdownMenuItem>Settings</DropdownMenuItem>
+        <DropdownMenuItem className='justify-between'>
+          Appearance <Sun className='ml-2' strokeWidth={1} />
+        </DropdownMenuItem>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem className='justify-between'>
+          Log Out
+          <LogOut className='ml-2' strokeWidth={1} />
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 }
