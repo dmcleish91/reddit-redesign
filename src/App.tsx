@@ -8,12 +8,14 @@ function App() {
   return (
     <div className='flex h-screen flex-col'>
       <NavBar />
-      <div className='flex flex-grow flex-row bg-gray-300' id='main-content'>
-        <div className='w-full space-y-2 p-4 2xl:w-10/12'>
+      <div className='flex flex-grow flex-row bg-zinc-200' id='main-content'>
+        <div className='w-full space-y-5 px-6 py-5 2xl:w-10/12'>
           <CreatePost />
-          {posts.map(({ postAge, subredditName, title, username }) => (
-            <Post title={title} subredditName={subredditName} username={username} postAge={postAge} />
-          ))}
+          <div className='divide-y divide-slate-300 rounded outline outline-1 outline-slate-600'>
+            {posts.map(({ postAge, subredditName, title, username }) => (
+              <Post key={title} title={title} subredditName={subredditName} username={username} postAge={postAge} />
+            ))}
+          </div>
         </div>
         <div className='hidden space-y-4 p-4 2xl:block 2xl:w-2/12'>
           <CommunityCard />

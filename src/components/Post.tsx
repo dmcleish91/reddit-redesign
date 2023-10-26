@@ -1,4 +1,4 @@
-import { Heart, LifeBuoy, Share } from 'lucide-react';
+import { BookMarked, Share, ThumbsUp } from 'lucide-react';
 import { Button } from './ui/button';
 
 interface PostProps {
@@ -7,23 +7,25 @@ interface PostProps {
   username: string;
   postAge: string;
 }
-
+// outline outline-1 outline-slate-300 hover:outline-slate-600
 function Post({ title, subredditName, username, postAge }: PostProps) {
   return (
-    <div className='flex h-28 flex-row gap-2 rounded bg-white p-2 sm:gap-4 md:h-20'>
+    <div className='flex h-28 flex-row gap-2 bg-white p-2 hover:outline hover:outline-1 hover:outline-slate-600 sm:gap-4 md:h-20'>
       <div className='flex flex-col gap-2'>
         <Button variant={'ghost'} size={'icon'} className='h-7 w-7'>
-          <Heart />
+          <ThumbsUp strokeWidth={1.6} />
         </Button>
         <Button variant={'ghost'} size={'icon'} className='h-7 w-7'>
-          <LifeBuoy />
+          <BookMarked strokeWidth={1.5} />
         </Button>
 
         <Button variant={'ghost'} size={'icon'} className='h-7 w-7 sm:hidden'>
-          <Share />
+          <Share strokeWidth={1.4} />
         </Button>
       </div>
-      <div className='h-18 order-last ml-auto w-24 shrink-0 bg-stone-800 sm:order-none sm:ml-0' id='post-preview'></div>
+      <div
+        className='h-18 order-last ml-auto w-24 shrink-0 rounded bg-stone-800 sm:order-none sm:ml-0'
+        id='post-preview'></div>
       <div className='flex min-w-0 flex-col justify-between'>
         <p className='text-xs font-semibold sm:hidden'>{subredditName}</p>
         <p className='line-clamp-2 font-semibold'>{title}</p>

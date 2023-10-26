@@ -13,7 +13,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Input } from './ui/input';
 import { Button } from './ui/button';
 
-export default function NavBar() {
+function NavBar() {
   const [open, setOpen] = React.useState(false);
 
   return (
@@ -36,11 +36,11 @@ export default function NavBar() {
           </Select>
         </div>
 
-        <div className='hidden grow flex-row sm:flex'>
+        <div className='hidden grow flex-row sm:flex xl:justify-center'>
           <Input
             type='text'
             placeholder='Search'
-            className='bg-gray-200 focus-visible:ring-1 focus-visible:ring-stone-400 focus-visible:ring-offset-0 '
+            className='max-w-7xl bg-zinc-100 focus-visible:ring-1 focus-visible:ring-stone-400 focus-visible:ring-offset-0'
             onClick={() => {
               setOpen((prev) => !prev);
             }}
@@ -57,24 +57,24 @@ export default function NavBar() {
           <Search />
         </Button>
 
-        <div className='flex flex-row items-center gap-2 xl:gap-12'>
-          <div className='flex flex-row gap-0 md:gap-2'>
+        <div className='flex flex-row items-center gap-2 xl:gap-4'>
+          <div className='flex flex-row gap-0 md:gap-4'>
             <Button size={'icon'} variant={'ghost'} className='hidden h-8 w-8 lg:flex'>
-              <ArrowUpRightSquare />
+              <ArrowUpRightSquare strokeWidth={1.5} />
             </Button>
             <Button size={'icon'} variant={'ghost'} className='hidden h-8 w-8 lg:flex'>
-              <MessagesSquare />
+              <MessagesSquare strokeWidth={1.5} />
             </Button>
             <Button size={'icon'} variant={'ghost'} className='h-8 w-8'>
-              <Bell />
+              <Bell strokeWidth={1.5} />
             </Button>
             <Button size={'icon'} variant={'ghost'} className='h-8 w-8'>
-              <Plus />
+              <Plus strokeWidth={1.5} />
             </Button>
           </div>
           <div className='flex flex-row items-center gap-2 md:px-2'>
             <div>
-              <ChevronDown />
+              <ChevronDown strokeWidth={1.5} />
             </div>
             <div>
               <p className='text-sm font-semibold'>TheStygianSun</p>
@@ -91,6 +91,7 @@ export default function NavBar() {
     </div>
   );
 }
+export default NavBar;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function CommandMenu({ open, setOpen }: { open: boolean; setOpen: (open: any) => void }) {
