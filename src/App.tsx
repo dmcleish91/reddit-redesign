@@ -1,74 +1,17 @@
+import { Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
 import NavBar from './components/NavBar';
-import CreatePost from './components/CreatePost';
-import CommunityCard from './components/CommunityCard';
-import Post from './components/Post';
-import TrendingCard from './components/TrendingCard';
+import Community from './pages/Community';
 
 function App() {
   return (
     <div className='flex h-screen flex-col'>
       <NavBar />
-      <div className='flex flex-grow flex-row bg-zinc-200' id='main-content'>
-        <div className='w-full space-y-5 px-6 py-5 2xl:w-10/12'>
-          <CreatePost />
-          <div className='divide-y divide-slate-300 rounded outline outline-1 outline-slate-600'>
-            {posts.map(({ postAge, subredditName, title, username }) => (
-              <Post key={title} title={title} subredditName={subredditName} username={username} postAge={postAge} />
-            ))}
-          </div>
-        </div>
-        <div className='hidden space-y-4 p-4 2xl:block 2xl:w-2/12'>
-          <CommunityCard />
-          <TrendingCard />
-        </div>
-      </div>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/b/:id' element={<Community />} />
+      </Routes>
     </div>
   );
 }
-
 export default App;
-
-const posts = [
-  {
-    title: 'Breaking News: Supreme Court Issues Landmark Ruling on Free Speech',
-    subredditName: 'News',
-    username: 'NewsJunkie123',
-    postAge: '2 hours ago',
-  },
-  {
-    title: 'Tech Giants Announce Collaboration to Tackle Cybersecurity Threats',
-    subredditName: 'Technology',
-    username: 'TechWizard',
-    postAge: '5 hours ago',
-  },
-  {
-    title: 'Astronomers Discover New Exoplanet with Potential for Life',
-    subredditName: 'Science',
-    username: 'Stargazer42',
-    postAge: '12 hours ago',
-  },
-  {
-    title: 'Recipe of the Day: Delicious Homemade Pizza',
-    subredditName: 'Food',
-    username: 'FoodieChef',
-    postAge: '1 hour ago',
-  },
-  {
-    title: 'Movie Review: "Inception" - Mind-Bending Thriller Leaves Viewers in Awe',
-    subredditName: 'Movies',
-    username: 'Cinephile87',
-    postAge: '8 hours ago',
-  },
-  {
-    title: 'Travel Diary: Exploring the Serene Beauty of the Swiss Alps',
-    subredditName: 'Travel',
-    username: 'WanderlustAdventurer',
-    postAge: '16 hours ago',
-  },
-  {
-    title: 'Fitness Tips: How to Stay Motivated and Achieve Your Goals',
-    subredditName: 'Fitness',
-    username: 'FitLifeFanatic',
-    postAge: '3 hours ago',
-  },
-];

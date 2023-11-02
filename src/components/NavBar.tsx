@@ -16,7 +16,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import React, { ReactNode } from 'react';
+import React, { Fragment, ReactNode } from 'react';
 import {
   ArrowUpRightSquare,
   Bell,
@@ -216,7 +216,7 @@ function DropDownNotificationMenu({ children }: { children: ReactNode }) {
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         {NOTI.map((notification) => (
-          <>
+          <Fragment key={notification.username}>
             <DropdownMenuItem>
               <Notification
                 username={notification.username}
@@ -226,7 +226,7 @@ function DropDownNotificationMenu({ children }: { children: ReactNode }) {
               />
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-          </>
+          </Fragment>
         ))}
         <DropdownMenuItem>
           <Button className='w-full rounded' variant={'ghost'} size={'sm'}>

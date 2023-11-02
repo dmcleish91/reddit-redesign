@@ -1,25 +1,43 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Home } from 'lucide-react';
 import { Button } from './ui/button';
 
-export default function CommunityCard() {
+interface CommunityCardProps {
+  community: string;
+}
+
+function capitalizeFirstLetter(value: string) {
+  return value.charAt(0).toUpperCase() + value.slice(1);
+}
+
+function CommunityCard({ community }: CommunityCardProps) {
   return (
-    <Card className='max-w-96 h-64 border border-slate-400'>
-      <CardHeader>
+    <Card className='max-w-96 h-fit border border-slate-400'>
+      <CardHeader className='px-8'>
         <div className='flex flex-row items-center'>
-          <Home strokeWidth={1.25} className='mr-2' />
-          <CardTitle className='text-lg'>Home</CardTitle>
+          <CardTitle className='text-lg'>About {capitalizeFirstLetter(community)}</CardTitle>
         </div>
-        <CardDescription>Your personal page. Come here to check in with your favorite communities.</CardDescription>
+        <CardDescription>
+          <div className='divide-y-2'>
+            <div className='flex flex-row justify-between py-4'>
+              <p>Created</p>
+              <p>Date</p>
+            </div>
+            <div className='flex flex-row justify-between py-4'>
+              <p>Members</p>
+              <p>Count</p>
+            </div>
+          </div>
+        </CardDescription>
       </CardHeader>
-      <CardContent className='flex flex-col gap-2'>
+      <CardContent className='flex flex-col gap-2 px-8'>
         <Button variant={'default'} size={'sm'} className='rounded-xl'>
-          Create Post
+          Join
         </Button>
         <Button variant={'outline'} size={'sm'} className='rounded-xl'>
-          Create Community
+          Create Post
         </Button>
       </CardContent>
     </Card>
   );
 }
+export default CommunityCard;
