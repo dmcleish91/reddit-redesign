@@ -1,7 +1,7 @@
 import { Paperclip, Image, Rocket, Flame, Badge, RollerCoaster, TrendingUp, Plus } from 'lucide-react';
 import { Button } from './ui/button';
 
-function CreatePost() {
+function SortCreatePostMenu() {
   return (
     <div className='flex h-14 flex-row items-center justify-center gap-1 rounded border border-slate-400 bg-white px-2 md:justify-between md:gap-2'>
       <div className='flex flex-row items-center gap-1 md:gap-2'>
@@ -36,4 +36,4 @@ function CreatePost() {
     </div>
   );
 }
-export default CreatePost;
+export default SortCreatePostMenu;

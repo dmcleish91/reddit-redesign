@@ -1,15 +1,15 @@
-import CreatePost from '@/components/CreatePost';
 import Post from '@/components/Post';
 import TrendingCard from '@/components/TrendingCard';
 import HomeCard from '@/components/HomeCard';
 import { posts } from '@/data/mock';
+import SortCreatePostMenu from '@/components/SortCreatePostMenu';
 
 function Home() {
   return (
     <>
       <div className='flex flex-grow flex-row bg-zinc-200' id='main-content'>
         <div className='w-full space-y-3 p-3 2xl:w-10/12'>
-          <CreatePost />
+          <SortCreatePostMenu />
           <div className='divide-y divide-slate-300 rounded outline outline-1 outline-slate-600'>
             {posts.map(({ postAge, subredditName, title, username }) => (
               <Post key={title} title={title} subredditName={subredditName} username={username} postAge={postAge} />
