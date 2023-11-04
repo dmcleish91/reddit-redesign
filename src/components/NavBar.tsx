@@ -183,7 +183,7 @@ export function CommunitySelector() {
 function DropDownAvatarMenu({ children }: { children: ReactNode }) {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger>{children}</DropdownMenuTrigger>
+      <DropdownMenuTrigger asChild>{children}</DropdownMenuTrigger>
       <DropdownMenuContent className='min-w-[12rem]'>
         <DropdownMenuItem>Profile</DropdownMenuItem>
         <DropdownMenuItem>Settings</DropdownMenuItem>
@@ -203,7 +203,7 @@ function DropDownAvatarMenu({ children }: { children: ReactNode }) {
 function DropDownNotificationMenu({ children }: { children: ReactNode }) {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger>{children}</DropdownMenuTrigger>
+      <DropdownMenuTrigger asChild>{children}</DropdownMenuTrigger>
       <DropdownMenuContent className='min-w-[22rem]' align='end'>
         <DropdownMenuLabel className='flex  items-center justify-between'>
           Notifications

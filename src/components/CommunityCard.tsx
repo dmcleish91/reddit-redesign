@@ -1,4 +1,4 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from './ui/button';
 
 interface CommunityCardProps {
@@ -16,7 +16,7 @@ function CommunityCard({ community }: CommunityCardProps) {
         <div className='flex flex-row items-center'>
           <CardTitle className='text-lg'>About {capitalizeFirstLetter(community)}</CardTitle>
         </div>
-        <CardDescription>
+        <div className='text-muted-foreground text-sm'>
           <div className='divide-y-2'>
             <div className='flex flex-row justify-between py-4'>
               <p>Created</p>
@@ -27,7 +27,7 @@ function CommunityCard({ community }: CommunityCardProps) {
               <p>Count</p>
             </div>
           </div>
-        </CardDescription>
+        </div>
       </CardHeader>
       <CardContent className='flex flex-col gap-2 px-8'>
         <Button variant={'default'} size={'sm'} className='rounded-xl'>
