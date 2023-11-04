@@ -89,7 +89,7 @@ function CreatePost() {
           <CardHeader>
             <CardDescription>
               You are submitting a text-based post. Speak your mind. A title is required, but expanding further in the
-              text field is not.{' '}
+              text field is not.
             </CardDescription>
           </CardHeader>
           <CardContent className='space-y-2'>
