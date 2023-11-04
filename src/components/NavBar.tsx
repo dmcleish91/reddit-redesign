@@ -1,3 +1,4 @@
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import {
   Command,
   CommandDialog,
@@ -16,23 +17,27 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import React, { Fragment, ReactNode } from 'react';
+import { ScrollArea } from '@/components/ui/scroll-area';
+import { popularComm } from '@/data/mock';
+import { cn } from '@/lib/utils';
 import {
   ArrowUpRightSquare,
   Bell,
   ChevronDown,
-  Shell,
+  ChevronsUpDown,
+  LogOut,
   Plus,
   Search,
-  LogOut,
-  Sun,
   Settings,
-  ChevronsUpDown,
+  Shell,
+  Sun,
 } from 'lucide-react';
-import { ScrollArea } from '@/components/ui/scroll-area';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import React, { Fragment, ReactNode } from 'react';
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
+import { Button, buttonVariants } from './ui/button';
 import { Input } from './ui/input';
-import { Button } from './ui/button';
 
 function NavBar() {
   const [open, setOpen] = React.useState(false);
@@ -70,7 +75,7 @@ function NavBar() {
         </Button>
 
         <div className='flex flex-row items-center gap-2 xl:gap-4'>
-          <div className='flex flex-row gap-3 px-3'>
+          <div className='flex flex-row gap-3 px-3 items-center'>
             <Button size={'icon'} variant={'ghost'} className='hidden h-8 w-8 lg:flex'>
               <ArrowUpRightSquare strokeWidth={1.5} />
             </Button>
@@ -82,9 +87,12 @@ function NavBar() {
                 <Bell strokeWidth={1.5} />
               </Button>
             </DropDownNotificationMenu>
-            <Button size={'icon'} variant={'ghost'} className='h-8 w-8'>
+            <Link
+              className={cn(buttonVariants({ variant: 'ghost', size: 'icon' }), 'h-8 w-8')}
+              to={'post'}
+              relative='path'>
               <Plus strokeWidth={1.5} />
-            </Button>
+            </Link>
           </div>
           <div className='flex flex-row items-center gap-2 md:px-2'>
             <div>
@@ -142,6 +150,7 @@ function CommandMenu({ open, setOpen }: { open: boolean; setOpen: (open: any) =>
 export function CommunitySelector() {
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState('');
+  const navigate = useNavigate();
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -168,6 +177,7 @@ export function CommunitySelector() {
                   onSelect={(currentValue) => {
                     setValue(currentValue === value ? '' : currentValue);
                     setOpen(false);
+                    navigate('b/' + item);
                   }}>
                   {item}
                 </CommandItem>
@@ -275,25 +285,4 @@ const NOTI = [
     message:
       'The other pointed to good resources. I also want to add a few caveats (well, more like clarification - none of these are...',
   },
-];
-
-const popularComm: string[] = [
-  '3Dprinting',
-  'Apple',
-  'OutOfTheLoop',
-  'AskReddit',
-  'pics',
-  'funny',
-  'gaming',
-  'movies',
-  'worldnews',
-  'todayilearned',
-  'IAmA',
-  'aww',
-  'technology',
-  'science',
-  'sports',
-  'EarthPorn',
-  'food',
-  'programming',
 ];

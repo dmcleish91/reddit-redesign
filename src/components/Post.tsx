@@ -1,4 +1,5 @@
 import { BookMarked, Share, ThumbsUp } from 'lucide-react';
+
 import { Button } from './ui/button';
 
 interface PostProps {
@@ -10,7 +11,7 @@ interface PostProps {
 // outline outline-1 outline-slate-300 hover:outline-slate-600
 function Post({ title, subredditName, username, postAge }: PostProps) {
   return (
-    <div className='flex h-28 flex-row gap-2 bg-white p-2 hover:outline hover:outline-1 hover:outline-slate-600 sm:gap-4 md:h-20'>
+    <div className='flex h-28 flex-row gap-2 bg-white p-2 cursor-pointer hover:bg-gray-50 sm:gap-4 md:h-20'>
       <div className='flex flex-col gap-2'>
         <Button variant={'ghost'} size={'icon'} className='h-7 w-7'>
           <ThumbsUp strokeWidth={1.6} />

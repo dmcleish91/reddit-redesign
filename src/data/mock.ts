@@ -65,3 +65,24 @@ export const frameworks = [
     label: 'Astro',
   },
 ];
+
+export const popularComm: string[] = [
+  '3Dprinting',
+  'Apple',
+  'OutOfTheLoop',
+  'AskReddit',
+  'pics',
+  'funny',
+  'gaming',
+  'movies',
+  'worldnews',
+  'todayilearned',
+  'IAmA',
+  'aww',
+  'technology',
+  'science',
+  'sports',
+  'EarthPorn',
+  'food',
+  'programming',
+];

@@ -1,10 +1,11 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Home } from 'lucide-react';
+
 import { Button } from './ui/button';
 
 function HomeCard() {
   return (
-    <Card className='max-w-96 h-fit border border-slate-400'>
+    <Card className='max-w-96 h-fit border border-slate-300'>
       <CardHeader className='px-8'>
         <div className='flex flex-row items-center'>
           <Home strokeWidth={1.25} className='mr-2' />

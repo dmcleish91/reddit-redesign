@@ -4,17 +4,25 @@ import { Label } from '@/components/ui/label';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Textarea } from '@/components/ui/textarea';
-import { frameworks } from '@/data/mock';
+import { popularComm } from '@/data/mock';
 import { cn } from '@/lib/utils';
 import { Check, ChevronsUpDown } from 'lucide-react';
 import React from 'react';
+import { useParams } from 'react-router-dom';
 
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 
 function CreatePost() {
+  const { id } = useParams();
   const [open, setOpen] = React.useState(false);
-  const [value, setValue] = React.useState('');
+  const [value, setValue] = React.useState(getInitValue);
+
+  console.log(id);
+
+  function getInitValue() {
+    return id ? id : '';
+  }
 
   return (
     <Tabs defaultValue='link' className='max-w-[400px]'>
@@ -49,7 +57,7 @@ function CreatePost() {
                 <Popover open={open} onOpenChange={setOpen}>
                   <PopoverTrigger asChild>
                     <Button variant='outline' role='combobox' aria-expanded={open} className='w-full justify-between'>
-                      {value ? frameworks.find((framework) => framework.value === value)?.label : 'Select community'}
+                      {value ? popularComm.find((item) => item === value) : 'Select community'}
                       <ChevronsUpDown className='ml-2 h-4 w-4 shrink-0 opacity-50' />
                     </Button>
                   </PopoverTrigger>
@@ -58,18 +66,16 @@ function CreatePost() {
                       <CommandInput placeholder='Search Your Communities...' />
                       <CommandEmpty>No framework found.</CommandEmpty>
                       <CommandGroup>
-                        {frameworks.map((framework) => (
+                        {popularComm.map((item) => (
                           <CommandItem
-                            key={framework.value}
-                            value={framework.value}
+                            key={item}
+                            value={item}
                             onSelect={(currentValue) => {
                               setValue(currentValue === value ? '' : currentValue);
                               setOpen(false);
                             }}>
-                            <Check
-                              className={cn('mr-2 h-4 w-4', value === framework.value ? 'opacity-100' : 'opacity-0')}
-                            />
-                            {framework.label}
+                            <Check className={cn('mr-2 h-4 w-4', value === item ? 'opacity-100' : 'opacity-0')} />
+                            {item}
                           </CommandItem>
                         ))}
                       </CommandGroup>
@@ -107,7 +113,7 @@ function CreatePost() {
                 <Popover open={open} onOpenChange={setOpen}>
                   <PopoverTrigger asChild>
                     <Button variant='outline' role='combobox' aria-expanded={open} className='w-full justify-between'>
-                      {value ? frameworks.find((framework) => framework.value === value)?.label : 'Select community'}
+                      {value ? popularComm.find((item) => item === value) : 'Select community'}
                       <ChevronsUpDown className='ml-2 h-4 w-4 shrink-0 opacity-50' />
                     </Button>
                   </PopoverTrigger>
@@ -116,18 +122,16 @@ function CreatePost() {
                       <CommandInput placeholder='Search Your Communities...' />
                       <CommandEmpty>No framework found.</CommandEmpty>
                       <CommandGroup>
-                        {frameworks.map((framework) => (
+                        {popularComm.map((item) => (
                           <CommandItem
-                            key={framework.value}
-                            value={framework.value}
+                            key={item}
+                            value={item}
                             onSelect={(currentValue) => {
                               setValue(currentValue === value ? '' : currentValue);
                               setOpen(false);
                             }}>
-                            <Check
-                              className={cn('mr-2 h-4 w-4', value === framework.value ? 'opacity-100' : 'opacity-0')}
-                            />
-                            {framework.label}
+                            <Check className={cn('mr-2 h-4 w-4', value === item ? 'opacity-100' : 'opacity-0')} />
+                            {item}
                           </CommandItem>
                         ))}
                       </CommandGroup>
