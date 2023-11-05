@@ -33,7 +33,7 @@ import {
   Sun,
 } from 'lucide-react';
 import React, { Fragment, ReactNode } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { Button, buttonVariants } from './ui/button';
 import { Input } from './ui/input';
@@ -45,7 +45,7 @@ function NavBar() {
   const [value, setValue] = React.useState(id ? id : '');
 
   function createLink() {
-    const link = id ? `${id}/post` : '/post';
+    const link = id ? `b/${id}/post` : '/post';
     if (window.location.pathname.includes('post')) {
       return '';
     } else {
@@ -99,9 +99,9 @@ function NavBar() {
                 <Bell strokeWidth={1.5} />
               </Button>
             </DropDownNotificationMenu>
-            <a className={cn(buttonVariants({ variant: 'ghost', size: 'icon' }), 'h-8 w-8')} href={link}>
+            <Link className={cn(buttonVariants({ variant: 'ghost', size: 'icon' }), 'h-8 w-8')} to={link}>
               <Plus strokeWidth={1.5} />
-            </a>
+            </Link>
           </div>
           <div className='flex flex-row items-center gap-2 md:px-2'>
             <div>
