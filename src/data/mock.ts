@@ -81,6 +81,7 @@ export const popularComm: string[] = [
   'aww',
   'technology',
   'science',
+  'react',
   'sports',
   'EarthPorn',
   'food',

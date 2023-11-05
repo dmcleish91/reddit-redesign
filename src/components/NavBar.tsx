@@ -33,26 +33,39 @@ import {
   Sun,
 } from 'lucide-react';
 import React, { Fragment, ReactNode } from 'react';
-import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 import { Button, buttonVariants } from './ui/button';
 import { Input } from './ui/input';
 
+// change the a tag to a button and clean up the code
 function NavBar() {
+  const id = window.location.href.split('/')[4];
   const [open, setOpen] = React.useState(false);
+  const [value, setValue] = React.useState(id ? id : '');
+
+  function createLink() {
+    const link = id ? `${id}/post` : '/post';
+    if (window.location.pathname.includes('post')) {
+      return '';
+    } else {
+      return link;
+    }
+  }
+
+  const link = createLink();
 
   return (
     <div className='bg-white'>
       <nav className='flex h-12 items-center justify-between gap-1 px-4 py-1'>
         <div className='flex h-10 flex-row items-center gap-6 md:px-2'>
           <div className='shrink-0'>
-            <Link to={'/'} className='flex flex-row items-center gap-1'>
+            <a href={'/'} className='flex flex-row items-center gap-1'>
               <Shell size={32} />
               <p className='hidden text-lg font-bold md:block'>Bubble</p>
-            </Link>
+            </a>
           </div>
-          <CommunitySelector />
+          <CommunitySelector value={value} setValue={setValue} />
         </div>
 
         <div className='hidden grow flex-row sm:flex xl:justify-center'>
@@ -81,20 +94,14 @@ function NavBar() {
             <Button size={'icon'} variant={'ghost'} className='hidden h-8 w-8 lg:flex'>
               <ArrowUpRightSquare strokeWidth={1.5} />
             </Button>
-            {/* <Button size={'icon'} variant={'ghost'} className='hidden h-8 w-8 lg:flex'>
-              <MessagesSquare strokeWidth={1.5} />
-            </Button> */}
             <DropDownNotificationMenu>
               <Button size={'icon'} variant={'ghost'} className='h-8 w-8'>
                 <Bell strokeWidth={1.5} />
               </Button>
             </DropDownNotificationMenu>
-            <Link
-              className={cn(buttonVariants({ variant: 'ghost', size: 'icon' }), 'h-8 w-8')}
-              to={'post'}
-              relative='path'>
+            <a className={cn(buttonVariants({ variant: 'ghost', size: 'icon' }), 'h-8 w-8')} href={link}>
               <Plus strokeWidth={1.5} />
-            </Link>
+            </a>
           </div>
           <div className='flex flex-row items-center gap-2 md:px-2'>
             <div>
@@ -149,9 +156,8 @@ function CommandMenu({ open, setOpen }: { open: boolean; setOpen: (open: any) =>
   );
 }
 
-export function CommunitySelector() {
+export function CommunitySelector({ value, setValue }: { value: string; setValue: (value: string) => void }) {
   const [open, setOpen] = React.useState(false);
-  const [value, setValue] = React.useState('');
   const navigate = useNavigate();
 
   return (
