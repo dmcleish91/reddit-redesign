@@ -18,15 +18,13 @@ function CreatePost() {
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState(getInitValue);
 
-  console.log(id);
-
   function getInitValue() {
     return id ? id : '';
   }
 
   return (
     <Tabs defaultValue='link' className='max-w-[400px]'>
-      <TabsList className='grid w-full grid-cols-2'>
+      <TabsList className='grid w-full grid-cols-2 bg-slate-200'>
         <TabsTrigger value='link'>Link</TabsTrigger>
         <TabsTrigger value='text'>Text</TabsTrigger>
       </TabsList>

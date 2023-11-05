@@ -46,9 +46,11 @@ function NavBar() {
     <div className='bg-white'>
       <nav className='flex h-12 items-center justify-between gap-1 px-4 py-1'>
         <div className='flex h-10 flex-row items-center gap-6 md:px-2'>
-          <div className='flex shrink-0 flex-row items-center gap-1'>
-            <Shell size={32} />
-            <p className='hidden text-lg font-bold md:block'>Bubble</p>
+          <div className='shrink-0'>
+            <Link to={'/'} className='flex flex-row items-center gap-1'>
+              <Shell size={32} />
+              <p className='hidden text-lg font-bold md:block'>Bubble</p>
+            </Link>
           </div>
           <CommunitySelector />
         </div>
