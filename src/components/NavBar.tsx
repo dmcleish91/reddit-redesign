@@ -19,7 +19,6 @@ import {
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { popularComm } from '@/data/mock';
-import { cn } from '@/lib/utils';
 import {
   ArrowUpRightSquare,
   Bell,
@@ -33,27 +32,17 @@ import {
   Sun,
 } from 'lucide-react';
 import React, { Fragment, ReactNode } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-import { Button, buttonVariants } from './ui/button';
+import { Button } from './ui/button';
 import { Input } from './ui/input';
 
-// change the a tag to a button and clean up the code
 function NavBar() {
-  const id = window.location.href.split('/')[4];
+  const pathArray = window.location.href.split('/');
+  const id = pathArray[4];
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState(id ? id : '');
-
-  function createLink() {
-    const link = id ? `b/${id}/post` : '/post';
-    if (window.location.pathname.includes('post')) {
-      return '';
-    } else {
-      return link;
-    }
-  }
-
-  const link = createLink();
+  const navigate = useNavigate();
 
   return (
     <div className='bg-white'>
@@ -99,9 +88,19 @@ function NavBar() {
                 <Bell strokeWidth={1.5} />
               </Button>
             </DropDownNotificationMenu>
-            <Link className={cn(buttonVariants({ variant: 'ghost', size: 'icon' }), 'h-8 w-8')} to={link}>
+            <Button
+              className='h-8 w-8'
+              variant={'ghost'}
+              size={'icon'}
+              onClick={() => {
+                if (pathArray.at(-1)?.includes('post')) {
+                  return;
+                } else {
+                  navigate(id ? `b/${id}/post` : '/post');
+                }
+              }}>
               <Plus strokeWidth={1.5} />
-            </Link>
+            </Button>
           </div>
           <div className='flex flex-row items-center gap-2 md:px-2'>
             <div>
