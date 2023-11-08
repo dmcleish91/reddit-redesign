@@ -96,7 +96,7 @@ function NavBar() {
                 if (pathArray.at(-1)?.includes('post')) {
                   return;
                 } else {
-                  navigate(id ? `b/${id}/post` : '/post');
+                  navigate(id ? `/b/${id}/post` : '/post');
                 }
               }}>
               <Plus strokeWidth={1.5} />
@@ -201,7 +201,7 @@ function DropDownAvatarMenu({ children }: { children: ReactNode }) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>{children}</DropdownMenuTrigger>
-      <DropdownMenuContent className='min-w-[12rem]'>
+      <DropdownMenuContent className='min-w-[10rem]'>
         <DropdownMenuItem>Profile</DropdownMenuItem>
         <DropdownMenuItem>Settings</DropdownMenuItem>
         <DropdownMenuItem className='justify-between'>

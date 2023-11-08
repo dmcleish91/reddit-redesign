@@ -1,8 +1,13 @@
 import { Badge, Flame, Image, Paperclip, Plus, Rocket, RollerCoaster, TrendingUp } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 import { Button } from './ui/button';
 
 function SortCreatePostMenu() {
+  const pathArray = window.location.href.split('/');
+  const id = pathArray[4];
+  const navigate = useNavigate();
+
   return (
     <div className='flex h-14 flex-row items-center justify-center gap-1 rounded border border-slate-300 bg-white px-2 md:justify-between md:gap-2'>
       <div className='flex flex-row items-center gap-1 md:gap-2'>
@@ -23,7 +28,17 @@ function SortCreatePostMenu() {
         </Button>
       </div>
       <div className='flex flex-row items-center gap-1 md:gap-2'>
-        <Button variant={'default'} size={'sm'} className='rounded-xl'>
+        <Button
+          variant={'default'}
+          size={'sm'}
+          className='rounded-xl'
+          onClick={() => {
+            if (pathArray.at(-1)?.includes('post')) {
+              return;
+            } else {
+              navigate(id ? `/b/${id}/post` : '/post');
+            }
+          }}>
           <Plus className='mr-1 hidden md:flex' strokeWidth={1.5} />
           Create
         </Button>
