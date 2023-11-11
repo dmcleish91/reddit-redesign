@@ -198,11 +198,12 @@ export function CommunitySelector({ value, setValue }: { value: string; setValue
 }
 
 function DropDownAvatarMenu({ children }: { children: ReactNode }) {
+  const navigate = useNavigate();
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>{children}</DropdownMenuTrigger>
       <DropdownMenuContent className='min-w-[10rem]'>
-        <DropdownMenuItem>Profile</DropdownMenuItem>
+        <DropdownMenuItem onClick={() => navigate('/user/username')}>Profile</DropdownMenuItem>
         <DropdownMenuItem>Settings</DropdownMenuItem>
         <DropdownMenuItem className='justify-between'>
           Appearance <Sun className='ml-2' strokeWidth={1} />

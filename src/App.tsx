@@ -6,6 +6,7 @@ import FullPost from './components/FullPost';
 import NavBar from './components/NavBar';
 import Community from './pages/Community';
 import Home from './pages/Home';
+import Profile from './pages/Profile';
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
           <Route path='post' element={<CreatePost />} />
           <Route path='comments/:postid' element={<FullPost />} />
         </Route>
-        <Route path='/user/:username' element={<h1>A page with posts with your most recent comments</h1>} />
+        <Route path='/user/:username' element={<Profile />} />
         <Route path='settings' element={<h1>Settings Page</h1>} />
       </Routes>
     </div>
