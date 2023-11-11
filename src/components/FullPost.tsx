@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
 import { BarChart2, Flag, Forward, MessageSquare, SaveAll, ThumbsDown, ThumbsUp } from 'lucide-react';
 import { useParams } from 'react-router-dom';
@@ -25,18 +25,18 @@ function PostCard() {
   return (
     <>
       <Card className='w-full'>
-        <CardHeader className='py-2'>
-          <CardDescription>Posted by u/username 9 hours ago</CardDescription>
-          <CardTitle className='text-xl'>LPT: Take care of your back as early in life as possible</CardTitle>
-        </CardHeader>
         <CardContent className='grid gap-4 py-2'>
-          <div className='space-y-4 rounded-md'>
-            <p>
+          <div>
+            <p className='font-normal'>Posted by u/username 9 hours ago</p>
+            <p className='text-xl font-semibold'>LPT: Take care of your back as early in life as possible</p>
+          </div>
+          <div className='rounded-md border p-1'>
+            <p className='max-w-4xl'>
               Treat your back well. Make sure to lift with your knees. Maintain a good posture when sitting. If you have
-              to sit for long periods of time at work, make sure to get up and walk.
+              to sit for long periods of time at work, make sure to get up and walk. I did not follow the instructions
+              above and I’m not even 40 with herniated discs in my spine. I’m in constant pain and regret not taking
+              care of my back when I should have.
             </p>
-            <p>I did not follow the instructions above and I’m not even 40 with herniated discs in my spine.</p>
-            <p>I’m in constant pain and regret not taking care of my back when I should have.</p>
           </div>
         </CardContent>
         <CardFooter className='py-2'>

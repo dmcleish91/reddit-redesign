@@ -1,26 +1,25 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Home } from 'lucide-react';
+import { Card } from '@/components/ui/card';
 
 import { Button } from './ui/button';
 
 function UserInfoCard() {
   return (
-    <Card className='max-w-96 h-fit border border-slate-300'>
-      <CardHeader className='px-8'>
-        <div className='flex flex-row items-center'>
-          <Home strokeWidth={1.25} className='mr-2' />
-          <CardTitle className='text-lg'>Home</CardTitle>
+    <Card className='max-w-96 h-fit border px-2 pt-8 pb-2'>
+      <div className='flex flex-col gap-2'>
+        <div>Chef Dreams</div>
+        <p>u/thestygiansun</p>
+        <div className='flex flex-row'>
+          <div className='flex flex-col basis-1/2'>
+            <p>Karma</p>
+            <p>4800</p>
+          </div>
+          <div className='flex flex-col basis-1/2'>
+            <p>Join Date</p>
+            <p>January 18, 2012</p>
+          </div>
         </div>
-        <CardDescription>Your personal page. Come here to check in with your favorite communities.</CardDescription>
-      </CardHeader>
-      <CardContent className='flex flex-col gap-2 px-8'>
-        <Button variant={'default'} size={'sm'} className='rounded-xl'>
-          Create Post
-        </Button>
-        <Button variant={'outline'} size={'sm'} className='rounded-xl'>
-          Create Community
-        </Button>
-      </CardContent>
+        <Button>New Post</Button>
+      </div>
     </Card>
   );
 }
