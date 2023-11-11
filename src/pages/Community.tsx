@@ -26,10 +26,10 @@ function Community() {
         <NotificationToggle />
       </div>
       <div className='flex flex-grow flex-row bg-zinc-200' id='main-content'>
-        <div className='w-full space-y-3 p-3 2xl:w-10/12'>
+        <div className='w-full space-y-3 p-3 xl:w-9/12'>
           <Outlet />
         </div>
-        <div className='hidden space-y-3 p-3 2xl:block 2xl:w-2/12'>
+        <div className='hidden space-y-3 p-3 xl:block xl:w-3/12'>
           <CommunityCard community={id!} />
         </div>
       </div>
