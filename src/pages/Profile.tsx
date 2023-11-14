@@ -22,7 +22,7 @@ export default Profile;
 function RecentComment() {
   return (
     <Card className='w-full'>
-      <div className='flex flex-row items-center gap-1 px-4 pt-2'>
+      <div className='flex flex-row items-center gap-1 px-4 pt-2 pb-1 flex-wrap'>
         <p className='text-sm text-blue-500'>TheStygianSun</p>
         <p className='text-sm text-gray-500'>commented in</p>
         <p className='text-sm text-gray-500 font-medium'>How are you suppose to beat this driver?</p>
