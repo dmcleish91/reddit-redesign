@@ -21,15 +21,31 @@ export default Profile;
 
 function RecentComment() {
   return (
-    <Card className='w-full p-4'>
-      <div className='flex flex-row items-center gap-1'>
-        <p className='text-sm text-gray-500'>TheStygianSun</p>
+    <Card className='w-full'>
+      <div className='flex flex-row items-center gap-1 px-4 pt-2'>
+        <p className='text-sm text-blue-500'>TheStygianSun</p>
         <p className='text-sm text-gray-500'>commented in</p>
-        <p className='text-sm text-gray-500'>Post</p>
+        <p className='text-sm text-gray-500 font-medium'>How are you suppose to beat this driver?</p>
         <p className='text-sm text-gray-500'>&#x2022;</p>
-        <p className='text-sm text-gray-500'>by user</p>
+        <p className='text-sm font-semibold'>Formula One</p>
+        <p className='text-sm text-gray-500'>&#x2022;</p>
+        <p className='text-sm text-gray-500'>Discussion by Other-Barry-1</p>
+      </div>
 
-        <p className='text-lg font-semibold'>Subreddit</p>
+      <div className='flex flex-row pb-2 gap-4 hover:outline hover:outline-1'>
+        <div className='border-l border-gray-400 border-dashed ml-4 mb-2' />
+        <div className='rounded bg-cyan-50 w-full mr-4 p-2'>
+          <div className='flex flex-row items-center gap-1'>
+            <p className='text-black text-xs'>TheStygianSun</p>
+            <p className='text-xs text-gray-500'>&#x2022;</p>
+            <p className='text-gray-500 text-xs'>49 points</p>
+            <p className='text-xs text-gray-500'>&#x2022;</p>
+            <p className='text-gray-500 text-xs'>6 hours ago</p>
+          </div>
+          <div className='flex flex-row items-center'>
+            <p className='text-black text-sm'>Mercedes: “that’s the neat part, you don’t.”</p>
+          </div>
+        </div>
       </div>
     </Card>
   );
