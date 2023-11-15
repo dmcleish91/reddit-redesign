@@ -34,6 +34,7 @@ import {
 import React, { Fragment, ReactNode } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import LoginDialog from './LoginDialog';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 
@@ -209,10 +210,12 @@ function DropDownAvatarMenu({ children }: { children: ReactNode }) {
           Appearance <Sun className='ml-2' strokeWidth={1} />
         </DropdownMenuItem>
         <DropdownMenuSeparator />
-        <DropdownMenuItem className='justify-between'>
-          Log Out
-          <LogOut className='ml-2' strokeWidth={1} />
-        </DropdownMenuItem>
+        <LoginDialog>
+          <DropdownMenuItem className='justify-between' onSelect={(e) => e.preventDefault()}>
+            Login
+            <LogOut className='ml-2' strokeWidth={1} />
+          </DropdownMenuItem>
+        </LoginDialog>
       </DropdownMenuContent>
     </DropdownMenu>
   );
