@@ -9,7 +9,6 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 
 // TODO: Design Login Modal
 function LoginDialog({ children }: { children: React.ReactNode }) {
@@ -18,25 +17,36 @@ function LoginDialog({ children }: { children: React.ReactNode }) {
       <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent className='sm:max-w-[425px]'>
         <DialogHeader>
-          <DialogTitle>Edit profile</DialogTitle>
-          <DialogDescription>Make changes to your profile here. Click save when you're done.</DialogDescription>
+          <DialogTitle>Log In</DialogTitle>
+          <DialogDescription>
+            By continuing, you agree to our <a href='#'>User Agreement</a> and acknowledge that you understand the
+            <a href='#'>Privacy Policy</a>.
+          </DialogDescription>
         </DialogHeader>
         <div className='grid gap-4 py-4'>
-          <div className='grid grid-cols-4 items-center gap-4'>
-            <Label htmlFor='name' className='text-right'>
-              Name
-            </Label>
-            <Input id='name' defaultValue='Pedro Duarte' className='col-span-3' />
+          <div className='grid items-center gap-2'>
+            <Button variant={'secondary'}>Continue with Google</Button>
+            <Button variant={'secondary'}>Continue with Apple</Button>
           </div>
           <div className='grid grid-cols-4 items-center gap-4'>
-            <Label htmlFor='username' className='text-right'>
-              Username
-            </Label>
-            <Input id='username' defaultValue='@peduarte' className='col-span-3' />
+            <Input id='name' placeholder='Username' className='col-span-4' />
+          </div>
+          <div className='grid grid-cols-4 items-center gap-4'>
+            <Input id='username' placeholder='Password' className='col-span-4' />
+          </div>
+          <div className='grid items-center gap-1'>
+            <a href='#' className='text-sm'>
+              Forgot password?
+            </a>
+            <p className='text-sm'>
+              New to Reddit? <a href='#'>Sign Up</a>
+            </p>
           </div>
         </div>
         <DialogFooter>
-          <Button type='submit'>Save changes</Button>
+          <Button type='submit' className='w-full'>
+            Log In
+          </Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>
